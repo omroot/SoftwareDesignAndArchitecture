@@ -1,0 +1,7 @@
+{
+  "notifiers": [
+    { "type": "email" },
+    { "type": "sms" },
+    { "type": "app" }
+  ]
+}
