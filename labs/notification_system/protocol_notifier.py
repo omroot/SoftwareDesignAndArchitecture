@@ -37,14 +37,18 @@ class AppNotifier:
         self.last_notification = f"{self.name} notification: {message}"
         print(self.last_notification)
 
+
+
 class NotificationManager:
     def __init__(self, notifiers: list[Notifier]):
         self.notifiers = notifiers
 
+    def run_notifier(self, notifier: Notifier, message: str) -> None:
+        notifier.send(message)
     def alert_all(self, message: str) -> list[str]:
         results = []
         for notifier in self.notifiers:
-            notifier.send(message)
+            self.run_notifier(notifier, message)
             results.append(notifier.last_notification)
         return results
 
